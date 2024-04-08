@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villas Feedback</title>
+    <link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+</head>
+
+<body ng-app="myModule" ng-controller="myController">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Villas Feedback</h1>
+        <a href="index.html" class="btn btn-primary back-button">Back</a>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" ng-repeat="villa in villas">
+                <div class="card h-100">
+                    <img width="200" height="200" src="{{villa.href}}" class="card-img-top villa-img"
+                        alt="{{ villa.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ villa.name }}</h5>
+                        <img src="{{villa.rating}}" class="rating-img" alt="Rating">
+                        <div class="villa-info">
+                            <p class="para">{{ villa.location }} - <span class="fw-bold">{{ villa.distance }}</span></p>
+                            <p>{{ villa.description }}</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button class="btn btn-primary" ng-click="incrementLike(villa)">Like</button>
+                            <span>Likes: {{ villa.likes }}</span>
+                            <button class="btn btn-danger" ng-click="incrementDislike(villa)">Dislike</button>
+                            <span>Dislikes: {{ villa.dislikes }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script>
+        var app = angular.module("myModule", []);
+        app.controller("myController", function ($scope) {
+            $scope.villas = [{
+                "href": 'villa1.jpg',
+                "name": "Waterstone Villa",
+                "rating": 'https://media.istockphoto.com/id/1006074668/vector/five-stars-rating-vector-icon.jpg?s=612x612&w=0&k=20&c=SyV8wKdo-Xw_bP_1dQR_pyTIcBhpVcVEhcCO-J6Y2Xc=',
+                "location": "South West, New Delhi",
+                "distance": "15km from center",
+                "description": "Experience luxury and tranquility in this stunning villa nestled in the heart of the Caribbean.",
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                "href": 'villa2.jpg',
+                "name": "Tranquil Haven Villa",
+                "rating": 'https://media.istockphoto.com/id/1006074668/vector/five-stars-rating-vector-icon.jpg?s=612x612&w=0&k=20&c=SyV8wKdo-Xw_bP_1dQR_pyTIcBhpVcVEhcCO-J6Y2Xc=',
+                "location": "North East, Mumbai",
+                "distance": "10km from center",
+                "description": "Oceanfront villa with sleek design, panoramic views, and infinity pool, epitomizing luxury and coastal tranquility in perfect harmony.",
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                "href": 'villa3.jpg',
+                "name": "Tropical Paradise",
+                "rating": 'https://media.istockphoto.com/id/1006074668/vector/five-stars-rating-vector-icon.jpg?s=612x612&w=0&k=20&c=SyV8wKdo-Xw_bP_1dQR_pyTIcBhpVcVEhcCO-J6Y2Xc=',
+                "location": "Caribbean",
+                "distance": "5km from beach",
+                "description": "Secluded hillside villa with rustic charm, stone façade, and vine-covered pergolas, offering a cozy retreat amidst natural beauty.",
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                "href": 'villa4.jpg',
+                "name": "Modern Luxe",
+                "rating": 'https://media.istockphoto.com/id/1006074668/vector/five-stars-rating-vector-icon.jpg?s=612x612&w=0&k=20&c=SyV8wKdo-Xw_bP_1dQR_pyTIcBhpVcVEhcCO-J6Y2Xc=',
+                "location": "Los Angeles, USA",
+                "distance": "20km from downtown",
+                "description": "Secluded hilltop villa offers rustic elegance with stone façade, terracotta roof, and beautifull vine-covered pergolas amidst natural tranquility.",
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                "href": 'villa5.jpg',
+                "name": "Italian Dream",
+                "rating": 'https://media.istockphoto.com/id/1006074668/vector/five-stars-rating-vector-icon.jpg?s=612x612&w=0&k=20&c=SyV8wKdo-Xw_bP_1dQR_pyTIcBhpVcVEhcCO-J6Y2Xc=',
+                "location": "Tuscany, Italy",
+                "distance": "10km from Florence",
+                "description": "Modern villa perched cliffside, boasting panoramic ocean views, sleek design, and infinity pool merging with horizon, offering coastal luxury.",
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                "href": 'villa6.jpg',
+                "name": "Coastal Retreat",
+                "rating": 'https://media.istockphoto.com/id/1006074668/vector/five-stars-rating-vector-icon.jpg?s=612x612&w=0&k=20&c=SyV8wKdo-Xw_bP_1dQR_pyTIcBhpVcVEhcCO-J6Y2Xc=',
+                "location": "Malibu, USA",
+                "distance": "On the beach",
+                "description": "Luxurious villa nestled amidst lush gardens, featuring elegant architecture, lavish interiors, and serene outdoor spaces with sparkling infinity pool.",
+                likes: 0,
+                dislikes: 0
+            }
+            ];
+
+            $scope.incrementLike = function (villa) {
+                villa.likes++;
+            }
+
+            $scope.incrementDislike = function (villa) {
+                villa.dislikes++;
+            }
+        });
+    </script>
+</body>
+
+</html>

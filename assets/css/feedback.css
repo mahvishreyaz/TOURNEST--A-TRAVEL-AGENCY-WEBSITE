@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    background-image: url(../images/payment/background.jpg);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff; /* White font color */
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* Add text shadow for better visibility */
+}
+
+.villa-img {
+    max-width: 330px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.villa-img:hover {
+    transform: scale(1.05);
+}
+
+.villa-info {
+    margin-bottom: 10px;
+}
+
+.para {
+    color: #6c757d;
+}
+
+.rating-img {
+    max-width: 90px;
+    margin-bottom: 5px;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.card {
+    animation: fade-in 1s ease;
+}
+
+.btn-primary,
+.btn-danger {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+    background-color: #0056b3;
+}
+
+.back-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}

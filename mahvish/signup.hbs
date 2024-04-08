@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Changed background color */
+        }
+
+        .signup-container {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(30px);
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            animation: fadeIn 1s ease; /* Added animation for fade-in effect */
+        }
+
+        .card-body {
+            padding: 40px;
+        }
+
+        h2 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #007bff; /* Changed font color */
+            font-size: 24px; /* Increased font size */
+            animation: slideInLeft 1s ease; /* Added animation for slide-in effect */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease; /* Added transition for smooth effect */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        button:hover {
+            border-color: #007bff; /* Changed border color on focus/hover */
+            outline: none; /* Removed default outline */
+        }
+
+        button {
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: fadeIn 1s ease; /* Added animation for fade-in effect */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .alternative-signup {
+            margin-top: 20px;
+        }
+
+        .alternative-signup p {
+            margin-bottom: 10px;
+        }
+
+        .alternative-signup button {
+            padding: 5px 10px;
+            font-size: 20px;
+            margin: 0 5px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <section class="signup-container">
+        <div class="card"> <!-- Removed mx-auto -->
+            <div class="card-body">
+                <h2>Sign up now</h2>
+                <form action="/signup" method="post">
+                    <div class="form-group">
+                        <input type="text" name="fname" placeholder="First name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="lname" placeholder="Last name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
